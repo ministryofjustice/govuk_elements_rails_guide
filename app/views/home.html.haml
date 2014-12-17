@@ -1,3 +1,27 @@
 - @page_title = 'GovUK Elements Rails Guide'
 - @app_title = 'GovUK Elements Rails Guide'
-%p hi
+
+%h1.heading-large GOV.UK elements rails snippets
+
+%p GOV.UK elements Rails view helpers can be used to help with prototyping.
+
+%h2.heading-medium Forms
+
+%h3.heading-small Form inputs
+
+= form_for(ExampleModel.new) do |f|
+  .example
+    = f.text_field :name
+
+- ex = ''
+- form_for(ExampleModel.new) { |f| ex = capture { f.text_field :name } }
+
+%pre
+  %code.language-ruby
+    f.text_field :name
+
+%pre
+  %code.language-markup
+    = ex.gsub('><',">\n<")
+
+

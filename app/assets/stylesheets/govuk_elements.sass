@@ -14,3 +14,43 @@ $path: ''
 @import 'elements/panels'
 // @import 'elements/icons'
 
+
+// Example boxes
+// ==========================================================================
+
+.example
+  @extend %contain-floats
+  position: relative
+  overflow: hidden
+  border-top: 1px solid $grey-2
+  border-bottom: 1px solid $grey-2
+  margin-top: $gutter-half
+  margin-bottom: $gutter*1.5
+
+  padding-top: $gutter
+  padding-bottom: $gutter-half
+  padding-left: 3px
+
+  @include media(tablet)
+    padding-top: $gutter*1.5
+    padding-bottom: $gutter
+    padding-left: 3px
+
+  &:before
+    content: "EXAMPLE"
+
+    position: absolute
+    top: 0
+    left: 0
+
+    padding: em(4) em(15) em(4) em(15)
+
+    @include core-14
+    background: $grey-2
+    color: white
+
+  // Blue text for heading sizes
+  .highlight
+    font-style: normal
+    color: $hm-government
+

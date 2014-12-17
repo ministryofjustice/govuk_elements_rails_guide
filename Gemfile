@@ -15,4 +15,5 @@ gem 'govuk_frontend_toolkit', '>= 2.0.1'
 gem 'govuk_elements_rails', '>= 0.2.1'
 
 gem 'moj_template'
+gem 'pry'
 
