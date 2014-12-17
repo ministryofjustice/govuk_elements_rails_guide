@@ -1,0 +1,31 @@
+- content_for :page_title do
+  = "#{@page_title} - #{Rails.configuration.app_title}"
+
+- content_for :stylesheets do
+  = raw stylesheet_link_tag("application", media: "all")
+  = raw %Q|    <!--[if IE 6]> #{stylesheet_link_tag "govuk_elements_extensions_ie6", media: "all"} <![endif]-->|
+  = raw %Q|    <!--[if IE 7]> #{stylesheet_link_tag "govuk_elements_extensions_ie7", media: "all"} <![endif]-->|
+  = raw %Q|    <!--[if IE 8]> #{stylesheet_link_tag "govuk_elements_extensions_ie8", media: "all"} <![endif]-->|
+
+- content_for :javascripts do
+  = raw %Q|    <!--[if gte IE 7]><!--> #{javascript_include_tag "application"} <!--<![endif]-->|
+
+- content_for :head do
+  = csrf_meta_tag
+
+- content_for :cookie_message, ""
+
+- content_for :content_override do
+  %main#page-container{ role: "main" }
+    .phase-banner
+      %p
+        %span This is a prototype.
+    =yield
+
+- content_for :footer_app_links do
+  %li
+    %ul
+      %li
+
+= render template: "layouts/moj_template"
+
