@@ -37,5 +37,6 @@ module GovukElementsRailsGuide
     config.product_type = 'information'
 
     config.use_govuk_elements_form_builder = true
+
   end
 end

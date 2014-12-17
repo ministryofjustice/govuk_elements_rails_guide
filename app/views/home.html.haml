@@ -5,23 +5,70 @@
 
 %p GOV.UK elements Rails view helpers can be used to help with prototyping.
 
+- example = ''
+
 %h2.heading-medium Forms
 
-%h3.heading-small Form inputs
+%h3.heading-small Text inputs
 
 = form_for(ExampleModel.new) do |f|
-  .example
-    = f.text_field :name
+  - example = capture { f.text_field :name }
 
-- ex = ''
-- form_for(ExampleModel.new) { |f| ex = capture { f.text_field :name } }
+  .example
+    = example
 
 %pre
   %code.language-ruby
-    f.text_field :name
+    = preserve do
+      :escaped
+        form_for(ExampleModel.new) do |f|
+          f.text_field :name
 
+outputs:
 %pre
   %code.language-markup
-    = ex.gsub('><',">\n<")
+    = example.gsub('><',">\n<")
 
+
+%h3.heading-small Textarea inputs
+
+= form_for(ExampleModel.new) do |f|
+  - example = capture { f.text_area :address }
+
+  .example
+    = example
+
+%pre
+  %code.language-ruby
+    = preserve do
+      :escaped
+        form_for(ExampleModel.new) do |f|
+          f.text_area :address
+
+outputs:
+%pre
+  %code.language-markup
+    = example.gsub('><',">\n<")
+
+
+
+%h3.heading-small Radio buttons
+
+= form_for(ExampleModel.new) do |f|
+  - example = capture { f.radio_buttons(:status, %i[ accepted declined ], inline: true, labeler: ->(v){ t(v, scope: 'invitations.statuses') }) }
+
+  .example
+    = example
+
+%pre
+  %code.language-ruby
+    = preserve do
+      :escaped
+        form_for(ExampleModel.new) do |f|
+          f.radio_buttons(:status, %i[ accepted declined ], inline: true, labeler: ->(v){ t(v, scope: 'invitations.statuses') })
+
+outputs:
+%pre
+  %code.language-markup
+    = example.gsub('><',">\n<")
 
