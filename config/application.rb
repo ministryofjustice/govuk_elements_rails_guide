@@ -35,5 +35,7 @@ module GovukElementsRailsGuide
     # product type may also govern highlight colours
     # known values: information, service
     config.product_type = 'information'
+
+    config.use_govuk_elements_form_builder = true
   end
 end
