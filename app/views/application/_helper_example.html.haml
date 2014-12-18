@@ -1,0 +1,26 @@
+- example = ''
+
+%h3.heading-small= label
+
+= form_for(ExampleModel.new) do |f|
+  - example = capture { eval(code) }
+
+  .example
+    = example
+
+code:
+%pre
+  %code.language-ruby
+    = preserve do
+      :escaped
+        form_for(ExampleModel.new) do |f|
+           # ...
+           #{code}
+           # ...
+         end
+
+outputs:
+%pre
+  %code.language-markup
+    = example.gsub('><',">\n<")
+
