@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/ministryofjustice/govuk_elements_form_builder.git
+  revision: d852f03a7d4666e81dddd187bc50ef65f7e668da
+  specs:
+    govuk_elements_form_builder (0.0.1)
+      rails (~> 4.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -152,6 +159,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  govuk_elements_form_builder!
   govuk_elements_rails (~> 1.1.2)
   govuk_frontend_toolkit
   haml-rails
