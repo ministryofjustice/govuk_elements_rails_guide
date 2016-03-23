@@ -43,10 +43,11 @@ GEM
     execjs (2.2.2)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-    govuk_elements_rails (0.2.1)
+    govuk_elements_rails (1.1.2)
+      govuk_frontend_toolkit (~> 4.6.1, >= 4.6.1)
       rails (~> 4.1, >= 4.1.0)
       sass (~> 3.2, >= 3.2.0)
-    govuk_frontend_toolkit (3.1.0)
+    govuk_frontend_toolkit (4.6.1)
       rails (>= 3.1.0)
       sass (>= 3.2.0)
     haml (4.1.0.beta.1)
@@ -151,8 +152,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  govuk_elements_rails (>= 0.2.1)
-  govuk_frontend_toolkit (>= 2.0.1)
+  govuk_elements_rails (~> 1.1.2)
+  govuk_frontend_toolkit
   haml-rails
   moj_template
   pry
