@@ -10,10 +10,10 @@
 = render partial: 'helper_example',
       locals: { label: 'Text inputs', code: 'f.text_field :name' }
 
-= render partial: 'helper_example',
+= # render partial: 'helper_example',
       locals: { label: 'Textarea inputs', code: 'f.text_area :name' }
 
-= render partial: 'helper_example',
+= # render partial: 'helper_example',
       locals: { label: 'Radio buttons',
         code: "f.radio_buttons(:status, %i[ accepted declined ], inline: true, labeler: ->(v){ t(v, scope: 'invitations.statuses') })" }
 
