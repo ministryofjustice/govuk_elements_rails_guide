@@ -26,3 +26,10 @@ outputs:
   %code.language-markup
     = example.gsub('><',">\n<")
 
+- if locales_config
+  locales file:
+  %pre
+    %code.language-markup
+      = preserve do
+        :escaped
+          #{locales_config}
