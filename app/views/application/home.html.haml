@@ -8,7 +8,7 @@
 %h2.heading-medium Forms
 
 = render partial: 'helper_example',
-      locals: { label: 'Text inputs', code: 'f.text_field :name' }
+      locals: { label: 'Text inputs', code: 'f.text_field :name', model: Person }
 
 = # render partial: 'helper_example',
       locals: { label: 'Textarea inputs', code: 'f.text_area :name' }

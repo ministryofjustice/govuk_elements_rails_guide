@@ -2,7 +2,7 @@
 
 %h3.heading-small= label
 
-= form_for(ExampleModel.new) do |f|
+= form_for(model.new) do |f|
   - example = capture { eval(code) }
 
   .example
@@ -13,7 +13,9 @@ code:
   %code.language-ruby
     = preserve do
       :escaped
-        form_for(ExampleModel.new) do |f|
+        #{model.name.underscore} = #{model.name}.new
+
+        form_for #{model.name.underscore} do |f|
            # ...
            #{code}
            # ...
