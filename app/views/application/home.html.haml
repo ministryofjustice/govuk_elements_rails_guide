@@ -1,19 +1,34 @@
 - @page_title = 'Examples'
 
-%h1.heading-large GOV.UK elements form builder examples
+%h1.heading-xlarge
+  %span.heading-secondary GOV.UK elements
+  Rails form builder examples
 
-%p
+%p.lede.text
   Use
   = link_to 'GOV.UK elements form builder', 'https://github.com/ministryofjustice/govuk_elements_form_builder'
   helper methods to develop form-based applications in Ruby on Rails.
 
-%h2.heading-medium Forms
+%h2.heading-small.heading-contents Contents:
+.grid-row
+  .column-two-thirds
+    %ul.list.list-contents
+      %li
+        %a{ href: '#form-text-fields' } Text fields
+      %li
+        %a{ href: '#form-hint-text' } Hint text
 
 = render partial: 'helper_example',
-      locals: { label: 'Text inputs',
+      locals: { label: 'Text fields',
                 code: 'f.text_field :name',
                 model: Person,
                 locales_config: "en:\n  helpers:\n    label:\n      person:\n        name: Full name" }
+
+= render partial: 'helper_example',
+      locals: { label: 'Hint text',
+                code: 'f.text_field :ni_number',
+                model: Person,
+                locales_config: "en:\n  helpers:\n    label:\n      person:\n        ni_number: National Insurance number\n    hint:\n      person:\n        ni_number: It’ll be on your last payslip. For example, JH 21 90 0A." }
 
 = # render partial: 'helper_example',
       locals: { label: 'Textarea inputs', code: 'f.text_area :name' }

@@ -1,6 +1,6 @@
 - example = ''
 
-%h3.heading-small= label
+%h3.heading-small{ id: "form-#{label.parameterize}" }= label
 
 = form_for(model.new) do |f|
   - example = capture { eval(code) }
