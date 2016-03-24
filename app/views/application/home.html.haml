@@ -1,0 +1,24 @@
+- @page_title = 'Examples'
+
+%h1.heading-large GOV.UK elements form builder examples
+
+%p
+  Use
+  = link_to 'GOV.UK elements form builder', 'https://github.com/ministryofjustice/govuk_elements_form_builder'
+  helper methods to develop form-based applications in Ruby on Rails.
+
+%h2.heading-medium Forms
+
+= render partial: 'helper_example',
+      locals: { label: 'Text inputs',
+                code: 'f.text_field :name',
+                model: Person,
+                locales_config: "en:\n  helpers:\n    label:\n      person:\n        name: Full name" }
+
+= # render partial: 'helper_example',
+      locals: { label: 'Textarea inputs', code: 'f.text_area :name' }
+
+= # render partial: 'helper_example',
+      locals: { label: 'Radio buttons',
+        code: "f.radio_buttons(:status, %i[ accepted declined ], inline: true, labeler: ->(v){ t(v, scope: 'invitations.statuses') })" }
+

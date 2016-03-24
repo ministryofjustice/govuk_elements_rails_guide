@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.8'
+gem 'rails'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'sdoc', '~> 0.4.0',        group: :doc
@@ -11,8 +11,9 @@ end
 
 gem 'haml-rails'
 
-gem 'govuk_frontend_toolkit', '>= 2.0.1'
-gem 'govuk_elements_rails', '>= 0.2.1'
+gem 'govuk_frontend_toolkit'
+gem 'govuk_elements_rails', '~> 1.1.2'
+gem 'govuk_elements_form_builder', git: 'https://github.com/ministryofjustice/govuk_elements_form_builder.git'
 
 gem 'moj_template'
 gem 'pry'
