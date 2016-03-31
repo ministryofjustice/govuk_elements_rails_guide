@@ -1,20 +1,29 @@
 - example = ''
+- locales_config ||= nil
+- form_code ||= nil
+- code ||= nil
 
 %h3.heading-small{ id: "form-#{label.parameterize}" }= label
 
+- example += capture { eval(code.sub(/^- /,'').gsub("\n- ","\n") ) } if code
 = form_for(model.new) do |f|
-  - example = capture { eval(code) }
+  - example += capture { eval(form_code) } if form_code
 
   .example
-    = example
+    = example.html_safe
 
 %p code:
 %pre
   %code.language-ruby
-    = preserve do
-      :escaped
-        = form_for #{model.name.underscore} do |f|
-          - #{code}
+    - if code
+      = preserve do
+        :escaped
+          #{code}
+    - if form_code
+      = preserve do
+        :escaped
+          = form_for #{model.name.underscore} do |f|
+            - #{form_code}
 
 %p outputs:
 %pre

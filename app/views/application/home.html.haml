@@ -17,18 +17,33 @@
         %a{ href: '#form-text-fields' } Text fields
       %li
         %a{ href: '#form-hint-text' } Hint text
+      %li
+        %a{ href: '#form-error-summary-box' } Error summary box
 
 = render partial: 'helper_example',
       locals: { label: 'Text fields',
-                code: 'f.text_field :name',
+                form_code: 'f.text_field :name',
                 model: Person,
                 locales_config: "en:\n  helpers:\n    label:\n      person:\n        name: Full name" }
 
 = render partial: 'helper_example',
       locals: { label: 'Hint text',
-                code: 'f.text_field :ni_number',
+                form_code: 'f.text_field :ni_number',
                 model: Person,
                 locales_config: "en:\n  helpers:\n    label:\n      person:\n        ni_number: National Insurance number\n    hint:\n      person:\n        ni_number: It’ll be on your last payslip. For example, JH 21 90 0A." }
+
+= render partial: 'helper_example',
+      locals: { label: 'Error summary box',
+                code: ['- person = Person.new',
+                  '- person.valid?',
+                  %'- GovukElementsErrorsHelper.error_summary person,\n  "Message to alert the user to a problem goes here",\n  "Optional description of the errors and how to correct them"'].join("\n"),
+                model: Person }
+
+= render partial: 'helper_example',
+      locals: { label: 'Error validation',
+                form_code: 'f.object.valid?; f.text_field :name',
+                model: Person,
+                locales_config: "en:\n  helpers:\n    label:\n      person:\n        name: Full name" }
 
 = # render partial: 'helper_example',
       locals: { label: 'Textarea inputs', code: 'f.text_area :name' }
