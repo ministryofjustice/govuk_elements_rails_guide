@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/ministryofjustice/govuk_elements_form_builder.git
-  revision: d852f03a7d4666e81dddd187bc50ef65f7e668da
+  revision: 41e7c93741641ebba8509ae9cd5be665ee08fe1f
+  branch: fields-for-errors
   specs:
     govuk_elements_form_builder (0.0.1)
       rails (~> 4.2)
@@ -120,7 +121,7 @@ GEM
       activesupport (= 4.2.6)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (11.1.1)
+    rake (11.1.2)
     rdoc (4.2.0)
       json (~> 1.4)
     ruby_parser (3.1.3)
