@@ -1,6 +1,6 @@
 - example = ''
 
-%h3.heading-small= label
+%h3.heading-small{ id: "form-#{label.parameterize}" }= label
 
 = form_for(model.new) do |f|
   - example = capture { eval(code) }
@@ -8,28 +8,24 @@
   .example
     = example
 
-code:
+%p code:
 %pre
   %code.language-ruby
     = preserve do
       :escaped
-        #{model.name.underscore} = #{model.name}.new
+        = form_for #{model.name.underscore} do |f|
+          - #{code}
 
-        form_for #{model.name.underscore} do |f|
-           # ...
-           #{code}
-           # ...
-         end
-
-outputs:
+%p outputs:
 %pre
   %code.language-markup
-    = example.gsub('><',">\n<")
+    = preserve do
+      #{"\n" + example.gsub('><', ">\n  <").gsub('  </', '</') }
 
 - if locales_config
-  locales file:
+  %p locales file:
   %pre
-    %code.language-markup
+    %code.language-yaml
       = preserve do
         :escaped
           #{locales_config}
