@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   root 'application#home'
+  get 'form-elements' => 'application#form_elements', as: :form_elements
+  get 'error-validation' => 'application#error_validation', as: :error_validation
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

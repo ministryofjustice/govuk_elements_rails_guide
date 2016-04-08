@@ -1,0 +1,39 @@
+- @page_title = 'Examples'
+
+%h1.heading-xlarge
+  %span.heading-secondary
+    GOV.UK elements
+  Errors and validation
+
+%p.lede
+  Use
+  = link_to 'form builder', root_path
+  helper methods to develop form-based applications.
+
+%h2.heading-small.heading-contents Contents:
+.grid-row
+  .column-two-thirds
+    %ul.list.list-contents
+      %li
+        %a{ href: '#form-error-summary-box' } Error summary box
+      %li
+        %a{ href: '#form-error-validation' } Error validation
+
+= render partial: 'helper_example',
+      locals: { label: 'Error summary box',
+                code: ['- person = Person.new',
+                  '- person.valid?',
+                  %'- GovukElementsErrorsHelper.error_summary person,\n  "Message to alert the user to a problem goes here",\n  "Optional description of the errors and how to correct them"'].join("\n"),
+                model: Person }
+
+= render partial: 'helper_example',
+      locals: { label: 'Error validation',
+                form_code: 'f.object.valid?; f.text_field :name',
+                model: Person,
+                locales_config: "en:\n  helpers:\n    label:\n      person:\n        name: Full name" }
+
+.grid-row.divider
+  .column-two-thirds
+    %p
+      Back to
+      = link_to 'form builder examples index', root_path

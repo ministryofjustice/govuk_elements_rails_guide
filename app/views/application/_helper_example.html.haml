@@ -3,7 +3,7 @@
 - form_code ||= nil
 - code ||= nil
 
-%h3.heading-small{ id: "form-#{label.parameterize}" }= label
+%h3.heading-medium{ id: "form-#{label.parameterize}" }= label
 
 - example += capture { eval(code.sub(/^- /,'').gsub("\n- ","\n") ) } if code
 = form_for(model.new) do |f|
