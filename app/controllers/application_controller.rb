@@ -6,4 +6,12 @@ class ApplicationController < ActionController::Base
   def home
     render 'home'
   end
+
+  def form_elements
+    render 'form_elements'
+  end
+
+  def error_validation
+    render 'error_validation'
+  end
 end
