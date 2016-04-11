@@ -1,0 +1,38 @@
+- @page_title = 'Examples'
+
+%h1.heading-xlarge
+  %span.heading-secondary
+    GOV.UK elements
+  Form elements
+
+%p.lede
+  Use
+  = link_to 'form builder', root_path
+  helper methods to develop form-based applications.
+
+%h2.heading-small.heading-contents Contents:
+.grid-row
+  .column-two-thirds
+    %ul.list.list-contents
+      %li
+        %a{ href: '#form-text-fields' } Text fields
+      %li
+        %a{ href: '#form-hint-text' } Hint text
+
+= render partial: 'helper_example',
+      locals: { label: 'Text fields',
+                form_code: 'f.text_field :name',
+                model: Person,
+                locales_config: "en:\n  helpers:\n    label:\n      person:\n        name: Full name" }
+
+= render partial: 'helper_example',
+      locals: { label: 'Hint text',
+                form_code: 'f.text_field :ni_number',
+                model: Person,
+                locales_config: "en:\n  helpers:\n    label:\n      person:\n        ni_number: National Insurance number\n    hint:\n      person:\n        ni_number: It’ll be on your last payslip. For example, JH 21 90 0A." }
+
+.grid-row.divider
+  .column-two-thirds
+    %p
+      Back to
+      = link_to 'form builder examples index', root_path

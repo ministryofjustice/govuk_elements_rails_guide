@@ -4,35 +4,30 @@
   %span.heading-secondary GOV.UK elements
   Rails form builder examples
 
-%p.lede.text
-  Use
-  = link_to 'GOV.UK elements form builder', 'https://github.com/ministryofjustice/govuk_elements_form_builder'
+%p.lede
+  Use form builder
   helper methods to develop form-based applications in Ruby on Rails.
 
-%h2.heading-small.heading-contents Contents:
 .grid-row
+  .column-one-third
+    %h2.heading-medium
+      = link_to 'Form elements', form_elements_path
+    %p
+      Form fields, labels, focus states, radio buttons, checkboxes.
+  .column-one-third
+    %h2.heading-medium
+      = link_to 'Errors and validation', error_validation_path
+    %p
+      Summary boxes, highlighting errors in forms.
+  .column-one-third
+
+.grid-row.divider
   .column-two-thirds
-    %ul.list.list-contents
-      %li
-        %a{ href: '#form-text-fields' } Text fields
-      %li
-        %a{ href: '#form-hint-text' } Hint text
-
-= render partial: 'helper_example',
-      locals: { label: 'Text fields',
-                code: 'f.text_field :name',
-                model: Person,
-                locales_config: "en:\n  helpers:\n    label:\n      person:\n        name: Full name" }
-
-= render partial: 'helper_example',
-      locals: { label: 'Hint text',
-                code: 'f.text_field :ni_number',
-                model: Person,
-                locales_config: "en:\n  helpers:\n    label:\n      person:\n        ni_number: National Insurance number\n    hint:\n      person:\n        ni_number: It’ll be on your last payslip. For example, JH 21 90 0A." }
-
-= # render partial: 'helper_example',
-      locals: { label: 'Textarea inputs', code: 'f.text_area :name' }
-
-= # render partial: 'helper_example',
-      locals: { label: 'Radio buttons',
-        code: "f.radio_buttons(:status, %i[ accepted declined ], inline: true, labeler: ->(v){ t(v, scope: 'invitations.statuses') })" }
+    %h3.heading-small
+      Looking for the software code?
+    %p
+      The source code for <a href="https://github.com/ministryofjustice/govuk_elements_form_builder" rel="external">form builder can be found on GitHub</a>.
+    %h3.heading-small
+      Want to discuss these helpers?
+    %p
+      <a href="https://github.com/ministryofjustice/govuk_elements_form_builder/issues" rel="external">Raise an issue on our GitHub repo</a>.
