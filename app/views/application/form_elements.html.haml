@@ -39,7 +39,7 @@
       locals: { label: 'Hint text',
                 form_code: 'f.text_field :ni_number',
                 model: Person,
-                locales_config: "en:\n  helpers:\n    label:\n      person:\n        ni_number: National Insurance number\n    hint:\n      person:\n        ni_number: It’ll be on your last payslip. For example, JH 21 90 0A." }
+                locales_config: "en:\n  helpers:\n    label:\n      person:\n        ni_number: National Insurance number\n    hint:\n      person:\n        ni_number: |\n          It’ll be on your last payslip. For example, JH 21 90 0A." }
 
 = render partial: 'helper_example',
       locals: { label: 'Text fields for nested model',
@@ -53,13 +53,13 @@
       locals: { label: 'Inline radio buttons',
                 form_code: 'f.radio_button_fieldset :has_user_account, inline: true',
                 model: Person,
-                locales_config: "en:\n  helpers:\n    fieldset:\n      person:\n        has_user_account: Do you already have a personal user account?\n" }
+                locales_config: "en:\n  helpers:\n    fieldset:\n      person:\n        has_user_account: |\n          Do you already have a personal user account?\n" }
 
 = render partial: 'helper_example',
       locals: { label: 'Stacked radio buttons',
                 form_code: 'f.radio_button_fieldset :location, choices: [:ni, :isle_of_man_channel_islands, :british_abroad]',
                 model: Person,
-                locales_config: "en:\n  helpers:\n    fieldset:\n      person:\n        location: Where do you live?\n    label:\n      person:\n        location:\n          ni: Northern Ireland\n          isle_of_man_channel_islands: Isle of Man or Channel Islands\n          british_abroad: I am a British citizen living abroad\n    hint:\n      person:\n        location: Select from these options because you answered you do not reside in England, Wales, or Scotland\n" }
+                locales_config: "en:\n  helpers:\n    fieldset:\n      person:\n        location: Where do you live?\n    label:\n      person:\n        location:\n          ni: |\n            Northern Ireland\n          isle_of_man_channel_islands: |\n            Isle of Man or Channel Islands\n          british_abroad: |\n            I am a British citizen living abroad\n    hint:\n      person:\n        location: Select from these options because you answered you do not reside in England, Wales, or Scotland\n" }
 
 .grid-row.divider
   .column-two-thirds

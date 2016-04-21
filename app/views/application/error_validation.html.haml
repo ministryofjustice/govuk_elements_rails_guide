@@ -28,7 +28,9 @@
 
 = render partial: 'helper_example',
       locals: { label: 'Error validation',
-                form_code: 'f.object.valid?; f.text_field :name',
+                code: ['- person = Person.new',
+                  '- person.valid?'].join("\n"),
+                form_code: 'f.text_field :name',
                 model: Person,
                 locales_config: "en:\n  helpers:\n    label:\n      person:\n        name: Full name" }
 
