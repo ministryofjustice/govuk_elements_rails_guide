@@ -26,6 +26,8 @@ en:
       person:
         name: Full name
         ni_number: National Insurance number
+      person[address_attributes]:
+        postcode: UK postcode
     hint:
       person:
         ni_number: It’ll be on your last payslip. For example, JH 21 90 0A.

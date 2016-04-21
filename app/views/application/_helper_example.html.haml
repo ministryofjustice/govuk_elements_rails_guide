@@ -5,20 +5,24 @@
 
 %h3.heading-medium{ id: "form-#{label.parameterize}" }= label
 
-- example += capture { eval(code.sub(/^- /,'').gsub("\n- ","\n") ) } if code
-= form_for(model.new) do |f|
-  - example += capture { eval(form_code) } if form_code
+- example += capture { eval(code.sub(/^- /,'').gsub("\n- ","\n") ) }.to_s + "\n" if code
+- eval(code.sub(/^- /,'').gsub("\n- ","\n") ) if code
+- person ||= model.new
+= form_for(person) do |f|
+  - example += capture { eval(form_code) }.to_s if form_code
 
   .example
     = example.html_safe
 
 %p code:
-%pre
-  %code.language-ruby
-    - if code
+- if code
+  %pre
+    %code.language-ruby
       = preserve do
         :escaped
           #{code}
+%pre
+  %code.language-ruby
     - if form_code
       = preserve do
         :escaped

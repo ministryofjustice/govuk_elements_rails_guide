@@ -18,6 +18,12 @@
         %a{ href: '#form-text-fields' } Text fields
       %li
         %a{ href: '#form-hint-text' } Hint text
+      %li
+        %a{ href: '#form-text-fields-for-nested-model' } Text fields for nested model
+      %li
+        See also
+        %a{ href: '/error-validation' } errors and validation
+        page
 
 = render partial: 'helper_example',
       locals: { label: 'Text fields',
@@ -30,6 +36,14 @@
                 form_code: 'f.text_field :ni_number',
                 model: Person,
                 locales_config: "en:\n  helpers:\n    label:\n      person:\n        ni_number: National Insurance number\n    hint:\n      person:\n        ni_number: It’ll be on your last payslip. For example, JH 21 90 0A." }
+
+= render partial: 'helper_example',
+      locals: { label: 'Text fields for nested model',
+                code: ['- person = Person.new',
+                  "- person.address = Address.new\n"].join("\n"),
+                form_code: 'f.fields_for(:address) { |a| a.text_field :postcode }',
+                model: Person,
+                locales_config: "en:\n  helpers:\n    label:\n      person[address_attributes]:\n        postcode: UK postcode" }
 
 .grid-row.divider
   .column-two-thirds
