@@ -33,7 +33,7 @@
 %pre
   %code.language-markup
     = preserve do
-      #{"\n" + example.gsub('><', ">\n  <").gsub('  </', '</') }
+      #{format_html_example(example)}
 
 - if locales_config
   %p locales file:

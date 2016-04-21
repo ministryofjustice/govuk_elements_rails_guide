@@ -21,6 +21,10 @@
       %li
         %a{ href: '#form-text-fields-for-nested-model' } Text fields for nested model
       %li
+        %a{ href: '#form-inline-radio-buttons' } Inline radio buttons
+      %li
+        %a{ href: '#form-stacked-radio-buttons' } Stacked radio buttons
+      %li
         See also
         %a{ href: '/error-validation' } errors and validation
         page
@@ -44,6 +48,18 @@
                 form_code: 'f.fields_for(:address) { |a| a.text_field :postcode }',
                 model: Person,
                 locales_config: "en:\n  helpers:\n    label:\n      person[address_attributes]:\n        postcode: UK postcode" }
+
+= render partial: 'helper_example',
+      locals: { label: 'Inline radio buttons',
+                form_code: 'f.radio_button_fieldset :has_user_account, inline: true',
+                model: Person,
+                locales_config: "en:\n  helpers:\n    fieldset:\n      person:\n        has_user_account: Do you already have a personal user account?\n" }
+
+= render partial: 'helper_example',
+      locals: { label: 'Stacked radio buttons',
+                form_code: 'f.radio_button_fieldset :location, choices: [:ni, :isle_of_man_channel_islands, :british_abroad]',
+                model: Person,
+                locales_config: "en:\n  helpers:\n    fieldset:\n      person:\n        location: Where do you live?\n    label:\n      person:\n        location:\n          ni: Northern Ireland\n          isle_of_man_channel_islands: Isle of Man or Channel Islands\n          british_abroad: I am a British citizen living abroad\n    hint:\n      person:\n        location: Select from these options because you answered you do not reside in England, Wales, or Scotland\n" }
 
 .grid-row.divider
   .column-two-thirds
