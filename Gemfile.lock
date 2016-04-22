@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ministryofjustice/govuk_elements_form_builder.git
-  revision: a27312323e4004d0cfc72083ec576d3215019e73
+  revision: 644ad73cd15b4aae4b0496c0c8074c67846c0f2a
   specs:
     govuk_elements_form_builder (0.0.1)
       rails (~> 4.2)
