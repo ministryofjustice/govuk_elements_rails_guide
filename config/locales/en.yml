@@ -55,7 +55,8 @@ en:
           Farm or agricultural waste
     hint:
       person:
-        location: Select from these options because you answered you do not reside in England, Wales, or Scotland
+        location: |
+          Select from these options because you answered you do not reside in England, Wales, or Scotland
         ni_number: |
           It’ll be on your last payslip. For example, JH 21 90 0A.
       person[waste_transport_attributes]:
