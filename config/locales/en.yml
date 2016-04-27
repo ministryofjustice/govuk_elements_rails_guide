@@ -21,6 +21,9 @@
 
 en:
   hello: "Hello world"
+  errors:
+    messages:
+      blank: is required
   helpers:
     fieldset:
       person:
