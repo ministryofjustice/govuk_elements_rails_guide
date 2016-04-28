@@ -33,7 +33,7 @@
 
 = render partial: 'helper_example',
       locals: { label: 'Text fields',
-                form_code: 'f.text_field :name',
+                form_code: 'f.text_field :name, {}, class: "my-class"',
                 model: Person,
                 locales_config: "en:\n  helpers:\n    label:\n      person:\n        name: Full name" }
 
