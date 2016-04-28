@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ministryofjustice/govuk_elements_form_builder.git
-  revision: 644ad73cd15b4aae4b0496c0c8074c67846c0f2a
+  revision: f1c803d3e36384a8297e72e31411eba792f81ac0
   specs:
     govuk_elements_form_builder (0.0.1)
       rails (~> 4.2)
@@ -86,7 +86,7 @@ GEM
     minitest (5.8.4)
     moj_template (0.23.0)
       rails (>= 3.1)
-    multi_json (1.11.2)
+    multi_json (1.11.3)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     pry (0.10.0)
