@@ -25,13 +25,15 @@
       %li
         %a{ href: '#form-stacked-radio-buttons' } Stacked radio buttons
       %li
+        %a{ href: '#form-checkboxes' } Checkboxes
+      %li
         See also
         %a{ href: '/error-validation' } errors and validation
         page
 
 = render partial: 'helper_example',
       locals: { label: 'Text fields',
-                form_code: 'f.text_field :name',
+                form_code: 'f.text_field :name, {}, class: "my-class"',
                 model: Person,
                 locales_config: "en:\n  helpers:\n    label:\n      person:\n        name: Full name" }
 
@@ -59,7 +61,15 @@
       locals: { label: 'Stacked radio buttons',
                 form_code: 'f.radio_button_fieldset :location, choices: [:ni, :isle_of_man_channel_islands, :british_abroad]',
                 model: Person,
-                locales_config: "en:\n  helpers:\n    fieldset:\n      person:\n        location: Where do you live?\n    label:\n      person:\n        location:\n          ni: |\n            Northern Ireland\n          isle_of_man_channel_islands: |\n            Isle of Man or Channel Islands\n          british_abroad: |\n            I am a British citizen living abroad\n    hint:\n      person:\n        location: Select from these options because you answered you do not reside in England, Wales, or Scotland\n" }
+                locales_config: "en:\n  helpers:\n    fieldset:\n      person:\n        location: Where do you live?\n    label:\n      person:\n        location:\n          ni: |\n            Northern Ireland\n          isle_of_man_channel_islands: |\n            Isle of Man or Channel Islands\n          british_abroad: |\n            I am a British citizen living abroad\n    hint:\n      person:\n        location: |\n          Select from these options because you answered you do not reside in England, Wales, or Scotland\n" }
+
+= render partial: 'helper_example',
+      locals: { label: 'Checkboxes',
+                code: ['- person = Person.new',
+                  "- person.waste_transport = WasteTransport.new\n"].join("\n"),
+                form_code: 'f.fields_for(:waste_transport) {|w| w.check_box_fieldset :waste_transport, [:animal_carcasses, :mines_quarries, :farm_agricultural]}',
+                model: Person,
+                locales_config: "en:\n  helpers:\n    fieldset:\n      person[waste_transport_attributes]:\n        waste_transport: |\n          Which types of waste do you transport regularly?\n    label:\n      person[waste_transport_attributes]:\n        animal_carcasses: |\n          Waste from animal carcasses\n        mines_quarries: |\n          Waste from mines or quarries\n        farm_agricultural: |\n          Farm or agricultural waste\n    hint:\n      person[waste_transport_attributes]:\n        waste_transport: |\n          Select all that apply\n" }
 
 .grid-row.divider
   .column-two-thirds

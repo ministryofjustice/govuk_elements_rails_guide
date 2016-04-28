@@ -15,7 +15,7 @@
     = example.html_safe
 
 .grid-row
-  %div{ class: locales_config.present? ? 'column-one-half' : '' }
+  %div{ class: locales_config.present? ? 'column-one-half' : 'column-full' }
 
     %p code:
     - if code
@@ -43,8 +43,9 @@
               #{locales_config}
 
 .grid-row
-  %p outputs:
-  %pre
-    %code.language-markup
-      = preserve do
-        #{format_html_example(example)}
+  .column-full
+    %p outputs:
+    %pre
+      %code.language-markup
+        = preserve do
+          #{format_html_example(example)}

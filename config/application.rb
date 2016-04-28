@@ -27,8 +27,8 @@ module GovukElementsRailsGuide
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.app_title = 'GOV.UK elements form builder guide'
-    config.proposition_title = 'GOV.UK elements form builder guide'
+    config.app_title = 'GOV.UK elements Rails form builder guide'
+    config.proposition_title = ''
     # phase governs text indicators and highlight colours
     # presumed values: alpha, beta, live
     config.phase = 'alpha'

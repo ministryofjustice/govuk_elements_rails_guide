@@ -24,7 +24,8 @@
                 code: ['- person = Person.new',
                   '- person.valid?',
                   %'- GovukElementsErrorsHelper.error_summary person,\n  "Message to alert the user to a problem goes here",\n  "Optional description of the errors and how to correct them"'].join("\n"),
-                model: Person }
+                model: Person,
+                locales_config: "en:\n  errors:\n    messages:\n      blank: is required\n  helpers:\n    label:\n      person:\n        name: Full name" }
 
 = render partial: 'helper_example',
       locals: { label: 'Error validation',
@@ -32,7 +33,7 @@
                   '- person.valid?'].join("\n"),
                 form_code: 'f.text_field :name',
                 model: Person,
-                locales_config: "en:\n  helpers:\n    label:\n      person:\n        name: Full name" }
+                locales_config: "en:\n  errors:\n    messages:\n      blank: is required\n  helpers:\n    label:\n      person:\n        name: Full name" }
 
 .grid-row.divider
   .column-two-thirds
