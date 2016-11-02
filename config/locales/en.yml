@@ -47,10 +47,10 @@ en:
       person[address_attributes]:
         postcode: UK postcode
       person[waste_transport_attributes]:
-        animal_carcasses: |
-          Waste from animal carcasses
+        animal_carcasses_html: |
+          Waste from animal carcasses<br><em>includes sloths and other Bradypodidae</em>
         mines_quarries: |
-          Waste from mines or quarries
+          Waste from mines or quarries (> 200 lbs)
         farm_agricultural: |
           Farm or agricultural waste
     hint:
