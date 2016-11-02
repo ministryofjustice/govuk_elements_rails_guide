@@ -69,7 +69,7 @@
                   "- person.waste_transport = WasteTransport.new\n"].join("\n"),
                 form_code: 'f.fields_for(:waste_transport) {|w| w.check_box_fieldset :waste_transport, [:animal_carcasses, :mines_quarries, :farm_agricultural]}',
                 model: Person,
-                locales_config: "en:\n  helpers:\n    fieldset:\n      person[waste_transport_attributes]:\n        waste_transport: |\n          Which types of waste do you transport regularly?\n    label:\n      person[waste_transport_attributes]:\n        animal_carcasses: |\n          Waste from animal carcasses\n        mines_quarries: |\n          Waste from mines or quarries\n        farm_agricultural: |\n          Farm or agricultural waste\n    hint:\n      person[waste_transport_attributes]:\n        waste_transport: |\n          Select all that apply\n" }
+                locales_config: "en:\n  helpers:\n    fieldset:\n      person[waste_transport_attributes]:\n        waste_transport: |\n          Which types of waste do you transport regularly?\n    label:\n      person[waste_transport_attributes]:\n        # Ending a label key with '_html' will mark translation as HTML safe\n        animal_carcasses_html: |\n          Waste from animal carcasses<br><em>includes sloths and other Bradypodidae</em>\n        # '>' gets escaped to '&gt;' if key doesn't end in '_html'\n        mines_quarries: |\n          Waste from mines or quarries (> 200 lbs)\n        farm_agricultural: |\n          Farm or agricultural waste\n    hint:\n      person[waste_transport_attributes]:\n        waste_transport: |\n          Select all that apply\n" }
 
 .grid-row.divider
   .column-two-thirds
