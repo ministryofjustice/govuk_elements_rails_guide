@@ -18,3 +18,6 @@ gem 'govuk_elements_form_builder', git: 'https://github.com/ministryofjustice/go
 gem 'moj_template'
 gem 'pry'
 
+#for heroku
+gem 'rails_12factor', group: :production
+ruby "2.3.1"
