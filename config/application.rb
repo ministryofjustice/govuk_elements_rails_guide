@@ -36,6 +36,16 @@ module GovukElementsRailsGuide
     # known values: information, service
     config.product_type = 'information'
 
+    # Use memory store for assets cache in development/test to avoid caching
+    # to tmp/assets, because it causes hiding of deprecation messages in
+    # stylesheets, sometimes break parallel_tests and doesn't always refresh
+    # gem stylesheets in development
+    config.assets.configure do |env|
+      if Rails.env.development? || Rails.env.test?
+        env.cache = ActiveSupport::Cache.lookup_store(:memory_store)
+      end
+    end
+
     ActionView::Base.default_form_builder = GovukElementsFormBuilder::FormBuilder
 
   end
