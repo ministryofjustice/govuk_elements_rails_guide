@@ -3,7 +3,8 @@
 - form_code ||= nil
 - code ||= nil
 
-%h3.heading-medium{ id: "form-#{label.parameterize}" }= label
+%h3.heading-medium{ id: "form-#{label.parameterize}" }
+  = label.html_safe
 
 - example += capture { eval(code.sub(/^- /,'').gsub("\n- ","\n") ) }.to_s + "\n" if code
 - eval(code.sub(/^- /,'').gsub("\n- ","\n") ) if code

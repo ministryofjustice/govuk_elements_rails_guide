@@ -13,6 +13,7 @@
 
 // from govuk_frontend_toolkit gem
 //= require vendor/polyfills/bind
+//= require govuk/selection-buttons
 //= require govuk_toolkit
 
 // from govuk_elements gem
@@ -20,7 +21,10 @@
 
 //= require prism
 
-var $blockLabels = $("input[type='radio'], input[type='checkbox']");
+(function () {
+  'use strict';
 
-GOVUK.selectionButtons($blockLabels);
+  var buttonSelector = 'label input[type=radio], label input[type=checkbox]';
+  var selectionButtons = new GOVUK.SelectionButtons(buttonSelector);
 
+}(GOVUK));
