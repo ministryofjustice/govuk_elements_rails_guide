@@ -90,13 +90,13 @@
       %code.language-javascript
         = preserve do
           :escaped
-            (function () {
+            (function (GOVUK) {
               'use strict';
 
               var buttonSelector = 'label input[type=radio], label input[type=checkbox]';
               var selectionButtons = new GOVUK.SelectionButtons(buttonSelector);
 
-            }(GOVUK));
+            }(window.GOVUK));
     %p
       If you need further help with checkboxes/radio buttons take a look at the following links:
 
