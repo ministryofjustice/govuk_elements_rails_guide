@@ -1,3 +1,0 @@
-== GovUK Elements Rails Guide
-
-
