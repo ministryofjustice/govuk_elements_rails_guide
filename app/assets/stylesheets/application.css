@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+@import "govuk-elements";
+
+.header-logo { visibility: hidden}
+

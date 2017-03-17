@@ -1,0 +1,35 @@
+@import "colours";
+@import "grid_layout";
+@import "elements/helpers";
+
+.intro{
+  margin: -10px 0 45px 0;
+  padding: 0 0 30px 0;
+  background: #005ea5;
+  color: #fff;
+  .heading-secondary {
+    color: #fff;
+  }
+  @include media(mobile) {
+    .heading-xlarge {
+      margin-top: 0;
+    }
+  }
+}
+
+.intro-wrapper {
+  @extend %site-width-container;
+}
+
+.intro-svg{
+  margin-top: $gutter * 2;
+  margin-bottom: $gutter * 2;
+
+  @include media(tablet) {
+       margin-top: $gutter;
+       margin-bottom: $gutter;
+  }
+  @include media(mobile) {
+    display: none;
+  }
+}

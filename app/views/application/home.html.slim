@@ -1,0 +1,29 @@
+- content_for :service_intro do
+  .intro
+    .intro-wrapper
+      .grid-row
+        .column-two-thirds
+          h1.heading-xlarge
+            span.heading-secondary GOV.UK elements
+            | Rails form builder examples
+
+          p.lede
+            | Use form builder
+            | helper methods to develop form-based applications in Ruby on Rails.
+        .column-one-third.intro-svg
+          = embedded_svg('svg/logo')
+
+.grid-row
+  .column-one-third
+    h2.heading-medium
+      = link_to 'Form elements', 'http://www.google.com'
+    p
+      = "Form fields, labels, focus states, radio buttons, checkboxes."
+
+  .column-one-third
+    h2.heading-medium
+      = link_to 'Errors and validation', 'http://www.google.com'
+    p
+      = "Summary boxes, highlighting errors in forms."
+
+  .column-one-third
