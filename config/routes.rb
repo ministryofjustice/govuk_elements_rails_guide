@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   root 'application#home'
 
+  get '/form_elements' => 'application#form_elements'
+
 end
