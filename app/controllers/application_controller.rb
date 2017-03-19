@@ -3,5 +3,5 @@ class ApplicationController < ActionController::Base
 
   def home; end
 
-  end
+  def form_elements; end
 end
