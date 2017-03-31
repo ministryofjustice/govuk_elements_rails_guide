@@ -1,0 +1,108 @@
+h1.heading-xlarge
+  span.heading-secondary
+    = "GOV.UK elements "
+  = "Form elements"
+
+.grid-row
+  .column-full
+    h2.heading-small.heading-contents
+      = "Contents:"
+    ul.list.list-contents
+      li
+        a href= '#form-text-fields'
+         = "Text fields"
+      li
+        a href= '#form-hint-text'
+          = "Hint text"
+      li
+        a href= '#form-text-fields-for-nested-model'
+          = "Text fields for nested model"
+      li
+        a href= '#form-inline-radio-buttons-a-href-guidance-js-more-guidance-a'
+          = "Inline radio buttons"
+      li
+        a href= '#form-stacked-radio-buttons-a-href-guidance-js-more-guidance-a'
+          = "Stacked radio buttons"
+      li
+        a href= '#form-checkboxes-a-href-guidance-js-more-guidance-a'
+          = "Checkboxes"
+      li
+        = "See also "
+        a href= '/error-validation'
+          = "errors and validation"
+        = " page"
+
+.grid-row
+  .column-full.guide
+    = render partial: 'example',
+            locals: {label: 'Text fields',
+                    form_code: 'f.text_field :name',
+                    model: Person,
+                    locales_config: "en:\n  helpers:\n    label:\n      person:\n        name: Full name"}
+
+    = render partial: 'example',
+            locals: {label: 'Hint text',
+                    form_code: 'f.text_field :ni_number, class: "my-class"',
+                    model: Person,
+                    locales_config: "en:\n  helpers:\n    label:\n      person:\n        ni_number: National Insurance number\n    hint:\n      person:\n        ni_number: |\n          It’ll be on your last payslip. For example, JH 21 90 0A."}
+
+    = render partial: 'example',
+            locals: {label: 'Text fields for nested model',
+                    code: ['- person = Person.new',
+                            "- person.address = Address.new"].join("\n"),
+                    form_code: 'f.fields_for(:address) { |a| a.text_field :postcode }',
+                    model: Person,
+                    locales_config: "en:\n  helpers:\n    label:\n      person[address_attributes]:\n        postcode: UK postcode"}
+
+    = render partial: 'example',
+            locals: {label: 'Inline radio buttons (<a href="#guidance-js">More guidance</a>)',
+                    form_code: 'f.radio_button_fieldset :locked, inline: true',
+                    model: Person,
+                    locales_config: "en:\n  helpers:\n    fieldset:\n      person:\n        locked: |\n          Would you like to unlock your account?\n"}
+
+    = render partial: 'example',
+            locals: {label: 'Stacked radio buttons (<a href="#guidance-js">More guidance</a>)',
+                    form_code: 'f.radio_button_fieldset :location, choices: [:ni, :isle_of_man_channel_islands, :british_abroad]',
+                    model: Person,
+                    locales_config: "en:\n  helpers:\n    fieldset:\n      person:\n        location: Where do you live?\n    label:\n      person:\n        location:\n          ni: |\n            Northern Ireland\n          isle_of_man_channel_islands: |\n            Isle of Man or Channel Islands\n          british_abroad: |\n            I am a British citizen living abroad\n    hint:\n      person:\n        location: |\n          Select from these options because you answered you do not reside in England, Wales, or Scotland\n"}
+
+    = render partial: 'example',
+            locals: {label: 'Checkboxes (<a href="#guidance-js">More guidance</a>)',
+                    code: ['- person = Person.new',
+                            "- person.waste_transport = WasteTransport.new\n"].join("\n"),
+                    form_code: 'f.fields_for(:waste_transport) {|w| w.check_box_fieldset :waste_transport, [:animal_carcasses, :mines_quarries, :farm_agricultural]}',
+                    model: Person,
+                    locales_config: "en:\n  helpers:\n    fieldset:\n      person[waste_transport_attributes]:\n        waste_transport: |\n          Which types of waste do you transport regularly?\n    label:\n      person[waste_transport_attributes]:\n        # Ending a label key with '_html' will mark translation as HTML safe\n        animal_carcasses_html: |\n          Waste from animal carcasses<br><em>includes sloths and other Bradypodidae</em>\n        # '>' gets escaped to '&gt;' if key doesn't end in '_html'\n        mines_quarries: |\n          Waste from mines or quarries (> 200 lbs)\n        farm_agricultural: |\n          Farm or agricultural waste\n    hint:\n      person[waste_transport_attributes]:\n        waste_transport: |\n          Select all that apply\n"}
+
+hr
+
+.grid-row.divider
+  .column-two-thirds
+    h3#guidance-js.heading-medium
+      = "Getting checkboxes/radio buttons to work."
+    p
+      = "You will need to require the selection-buttons.js file in application.js"
+    pre
+      code.language-ruby
+        | //= require govuk/selection-buttons
+    p
+      = "After requiring the JavaScript file you will need to initialise the checkboxes/radio buttons "
+      = "by adding the following to the bottom of application.js"
+    pre
+      code.language-javascript
+        | (function (GOVUK) {
+
+              'use strict';
+
+              var buttonSelector = 'label input[type=radio], label input[type=checkbox]';
+              var selectionButtons = new GOVUK.SelectionButtons(buttonSelector);
+
+            }(window.GOVUK));
+    p
+      ="If you need further help with checkboxes/radio buttons take a look at the following links:"
+
+    ul.list
+      li
+        = link_to 'GOVUK.SelectionButton Documentation', 'https://github.com/alphagov/govuk_frontend_toolkit/blob/master/docs/javascript.md#selection-buttons'
+      li
+        = link_to 'GOVUK Elements Rails requiring JavaScript', 'https://github.com/alphagov/govuk_elements_rails#javascript-from-govuk_frontend_toolkit'

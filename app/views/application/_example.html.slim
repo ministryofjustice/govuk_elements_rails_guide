@@ -1,0 +1,46 @@
+- example = ''
+- locales_config ||= nil
+- form_code ||= nil
+- code ||= nil
+
+h3.heading-medium  id="form-#{label.parameterize}"
+  = label.html_safe
+
+- example += capture { eval(code.sub(/^- /, '').gsub("\n- ", "\n")) }.to_s + "\n" if code
+- eval(code.sub(/^- /, '').gsub("\n- ", "\n")) if code
+- person ||= model.new
+= form_for(person) do |f|
+  - example += capture { eval(form_code) }.to_s if form_code
+
+  .example
+    = example.html_safe
+
+.grid-row
+  div class="#{full_or_half_column(locales_config)}"
+
+    p Code:
+    - if code
+      pre
+        code.language-ruby
+          = code
+
+    - if form_code
+      pre
+        code.language-ruby
+          | = form_for #{model.name.underscore} do |f|
+              - #{format_form_code(form_code)}
+
+
+  .column-one-half
+    - if locales_config
+      p Locales file:
+      pre
+        code.language-yaml
+          = locales_config
+
+.grid-row
+  .column-full
+    p Outputs:
+    pre
+      code.language-markup
+        = format_html_example(example)

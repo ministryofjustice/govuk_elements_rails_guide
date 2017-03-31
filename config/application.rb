@@ -22,5 +22,7 @@ module GovukElementsRailsGuide
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.ga_tracking_id = ''
+
+    ActionView::Base.default_form_builder = GovukElementsFormBuilder::FormBuilder
   end
 end
