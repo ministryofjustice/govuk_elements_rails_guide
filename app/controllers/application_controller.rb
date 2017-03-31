@@ -4,4 +4,6 @@ class ApplicationController < ActionController::Base
   def home; end
 
   def form_elements; end
+
+  def error_validations; end
 end

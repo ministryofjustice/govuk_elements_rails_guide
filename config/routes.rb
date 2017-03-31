@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get '/form_elements' => 'application#form_elements'
 
+  get '/error_validations' => 'application#error_validations'
+
   resources :people
 
 

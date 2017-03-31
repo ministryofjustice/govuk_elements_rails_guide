@@ -8,6 +8,7 @@ class Person
   attr_accessor :locked
   attr_accessor :waste_transport
 
+  validates_presence_of :name
 
   def address_attributes=(attributes)
     @address = Address.new(attributes)
