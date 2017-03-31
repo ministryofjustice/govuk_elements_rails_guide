@@ -17,6 +17,10 @@ module GOVUKFormBuilder
       def form_elements_page
         pages[:form_elements] ||= GOVUKFormBuilder::Pages::Application::FormElementsPage.new
       end
+
+      def error_validations_page
+        pages[:error_validations] ||= GOVUKFormBuilder::Pages::Application::ErrorValidationsPage.new
+      end
     end
   end
 end
