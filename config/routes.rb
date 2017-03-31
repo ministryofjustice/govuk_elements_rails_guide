@@ -5,4 +5,7 @@ Rails.application.routes.draw do
 
   get '/form_elements' => 'application#form_elements'
 
+  resources :people
+
+
 end

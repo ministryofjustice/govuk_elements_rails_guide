@@ -14,8 +14,10 @@
  */
 //*= require_tree .
 //*= require_self
-@import "govuk-elements";
 
+@import "govuk_prism";
+@import "govuk-elements";
+@import "example_boxes";
 @import "intro";
 
 .header-logo { visibility: hidden}
