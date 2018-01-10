@@ -1,0 +1,5 @@
+= render partial: 'example',
+        locals: {label: 'Stacked radio buttons (<a href="#guidance-js">More guidance</a>)',
+                form_code: 'f.radio_button_fieldset :location, choices: [:ni, :isle_of_man_channel_islands, :british_abroad]',
+                model: Person,
+                locales_config: "en:\n  helpers:\n    fieldset:\n      person:\n        location: Where do you live?\n    label:\n      person:\n        location:\n          ni: |\n            Northern Ireland\n          isle_of_man_channel_islands: |\n            Isle of Man or Channel Islands\n          british_abroad: |\n            I am a British citizen living abroad\n    hint:\n      person:\n        location: |\n          Select from these options because you answered you do not reside in England, Wales, or Scotland\n"}
