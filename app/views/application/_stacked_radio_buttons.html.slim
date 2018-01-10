@@ -3,3 +3,51 @@
                 form_code: 'f.radio_button_fieldset :location, choices: [:ni, :isle_of_man_channel_islands, :british_abroad]',
                 model: Person,
                 locales_config: "en:\n  helpers:\n    fieldset:\n      person:\n        location: Where do you live?\n    label:\n      person:\n        location:\n          ni: |\n            Northern Ireland\n          isle_of_man_channel_islands: |\n            Isle of Man or Channel Islands\n          british_abroad: |\n            I am a British citizen living abroad\n    hint:\n      person:\n        location: |\n          Select from these options because you answered you do not reside in England, Wales, or Scotland\n"}
+
+h4.heading-medium Conditionally revealing content
+
+p
+  = 'As per the '
+  = link_to 'gov.uk elements', 'http://govuk-elements.herokuapp.com/form-elements/#form-toggle-content'
+  = ' guidance, you can conditionally reveal content when the user clicks a radio button, by setting "inline" to "true", and passing a block to the helper.'
+
+.grid-row
+  div.column-full
+    p Code:
+    pre
+      code.language-ruby
+        = "f.radio_button_fieldset :contact_method, inline: true do |fieldset|\n"
+        = "  fieldset.radio_input(:email, panel_id: :email_panel)\n"
+        = "  fieldset.revealing_panel(:email_panel) do |panel|\n"
+        = "    panel.text_field :email_address\n"
+        = "  end\n"
+        = "\n"
+        = "  fieldset.radio_input(:mobile_phone, panel_id: :mobile_panel)\n"
+        = "  fieldset.revealing_panel(:mobile_panel) do |panel|\n"
+        = "    panel.text_field :mobile_phone_number\n"
+        = "  end\n"
+        = "end\n"
+
+.grid-row
+  div.column-full
+    p Outputs:
+    pre
+      code.language-html
+
+        =  "<div class='multiple-choice' data-target='email_panel'>\n"
+        =  "  <input id='person-email' type='radio' name='radio-contact-group' value='Yes'>\n"
+        =  "  <label for='person-email'>Email</label>\n"
+        =  "</div>\n"
+        =  "<div class='panel panel-border-narrow js-hidden' id='email_panel'>\n"
+        =  "  <label class='form-label' for='person-email-address'>Email address</label>\n"
+        =  "  <input class='form-control' name='person-email' type='text' id='person-email'>\n"
+        =  "</div>\n"
+        = "\n"
+        =  "<div class='multiple-choice' data-target='mobile_panel'>\n"
+        =  "  <input id='person-mobile_phone_number' type='radio' name='radio-contact-group' value='Yes'>\n"
+        =  "  <label for='person-mobile_phone_number'>Email</label>\n"
+        =  "</div>\n"
+        =  "<div class='panel panel-border-narrow js-hidden' id='mobile_panel'>\n"
+        =  "  <label class='form-label' for='person-mobile_phone_number'>Mobile phone number</label>\n"
+        =  "  <input class='form-control' name='person-mobile_phone_number' type='text' id='person-mobile_phone_number'>\n"
+        =  "</div>\n"
